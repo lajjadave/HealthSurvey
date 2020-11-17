@@ -1,1 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+h1 {
+    color: rgba(22, 93, 95, 0.966);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 500%;
+    font-weight: bolder;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+  }
+  body {
+    margin: 2em;
+  }
+  body, input[text], button {
+    color: #333;
+    font-family: Cambria, Georgia;
+  }
+  a {
+    cursor: pointer;
+    cursor: hand;
+  }
+  button {
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+  }
+
+  .ex-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* align-content: center;
+    align-items: center; */
+    /* height: 60px; */
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+  
+  /* Navigation link styles */
+  nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  nav a:visited, a:link {
+    color: #607D8B;
+  }
+  nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+  nav a.active {
+    color: #039be5;
+  }
+  
+  /* everywhere else */
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

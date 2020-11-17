@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCFK1KHbjN_AG7OQqMw6GhL9AaYdi4KOWw",
+    authDomain: "cloverhealth-44eb4.firebaseapp.com",
+    databaseURL: "https://cloverhealth-44eb4.firebaseio.com",
+    projectId: "cloverhealth-44eb4",
+    storageBucket: "cloverhealth-44eb4.appspot.com",
+    messagingSenderId: "91067896299",
+    appId: "1:91067896299:web:9bb8e98f4feb6919e8c9ae",
+    measurementId: "G-8N131FNG07"
+  }
 };
 
 /*

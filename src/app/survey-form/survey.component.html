@@ -1,0 +1,171 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h3 style="text-align:center">{{survey}}</h3>
+
+      <section>
+      <form fxLayout="column" fxLayoutAlign="center center"
+        (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+        <!-- (ngSubmit)="onSubmit(surveyForm)" #surveyForm="ngForm" -->
+        <div class="form-group">
+
+            <section layout="row" layout-wrap>           
+              <label fxFlex="50" for="firstname">First Name</label>
+              <label for="lastname">Last Name</label>
+            </section>
+          
+            <section layout="row" layout-wrap> 
+              <mat-form-field fxFlex="50"> 
+                <input type="text" class="form-control" id="firstname" ngModel name="firstname"
+                    required>
+              </mat-form-field>
+              <mat-form-field fxFlex="50">
+                <input type="text" class="form-control" id="lastname" ngModel name="lastname"
+                    required>
+              </mat-form-field>     
+            </section>
+
+            <div>
+              <label for="memberid">Clover Health Member ID#</label>
+              <section layout="row">
+              <mat-form-field fxFlex="100">
+                <input type="number" class="form-control" id="memberid" ngModel name="memberid"
+                  required>
+              </mat-form-field>
+              </section>
+            </div>
+            
+            <div>
+              <label for="dob">Date of Birth</label>
+              <section layout="row">             
+                <mat-form-field fxFlex="100">
+                  <input type="date" class="form-control" id="dob" ngModel name="dob"
+                    required>
+                </mat-form-field>
+              </section>
+            </div>
+
+            <section layout="row" layout-wrap>           
+              <label fxFlex="50" for="phone">Phone No.</label>
+              <label for="email">Email</label>
+            </section>
+
+            <section layout="row" layout-wrap> 
+            <mat-form-field fxFlex="50"> 
+              <input type="number" class="form-control" id="phone" placeholder="555-555-5555"
+              ngModel name="phone" required>
+            </mat-form-field>
+            <mat-form-field fxFlex="50">
+              <input type="email" class="form-control" id="email" placeholder="youremail@emailprovider.com"
+              ngModel name="email" required>
+            </mat-form-field>   
+            </section>
+               
+            <hr>
+
+            <!-- <section></section> -->
+            <label for="bestmethod">What is the best method to reach you?</label><br>
+                       
+            <!-- <div ng-controller="AppCtrl" ng-cloak> -->
+                <!-- <div class="ex-checkbox" layout="row" layout-wrap> -->
+                  <section class="example-section">  
+                    <span>
+                      <ul class="ex-checkbox" >
+                        <li *ngFor="let subtask of task.subtasks" fxFlex="50">
+                          <mat-checkbox [(ngModel)]="subtask.completed" name="subtask">
+                                        <!-- (ngModelChange)="updateAllComplete()"> -->
+                            {{subtask.name}}
+                          </mat-checkbox>
+                        </li>
+                      </ul>
+                    </span>
+                  </section>
+                <!-- </div>  -->
+              <!-- </div> -->
+              <section layout="row">
+                <mat-form-field fxFlex="100" >
+                  <input type="text" class="form-control" 
+                    ngModel name="other_text" placeholder="Other, please describe:">
+                </mat-form-field>
+              </section>
+
+            <label for="besttime">What is the best time of day to reach you?</label><br>
+            <div layout="row" layout-wrap>             
+              <mat-radio-group class="radio-group" [(ngModel)]="besttime" name="time">
+                <mat-radio-button *ngFor="let time of times" [value]="time"> 
+                  {{time}} 
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <label for="emergencycontact">Do you have an emergency contact—someone who helps with your medical care?</label><br>
+            <div layout="row" layout-wrap>
+            <mat-radio-group [(ngModel)]="emergencycontact" name="emergencycontact" 
+                              class="radio-group" style="flex-direction: row">
+              <mat-radio-button *ngFor="let contact of contacts" [value]="contact" fxFlex="50">
+                {{contact}}
+              </mat-radio-button>              
+            </mat-radio-group>
+            </div>
+
+            <div *ngIf="emergencycontact=='Yes'">
+              <label for="emergencycontactname">Emergency Contact Name</label>
+              <section layout="row">             
+                <mat-form-field fxFlex="100">
+                  <input type="text" class="form-control" ngModel name="emergencycontactname">
+                </mat-form-field>
+              </section>
+              <label for="emergencyphone">Phone Number</label>
+              <section layout="row">             
+                <mat-form-field fxFlex="100">
+                  <input type="number" class="form-control" ngModel name="emergencyphone" placeholder="555-555-5555">
+                </mat-form-field>
+              </section>
+              <label for="relation">How are they related to you?</label>
+              <section layout="row" layout-wrap>
+                <mat-radio-group [(ngModel)]="relation" name="relation" 
+                                  class="radio-group" style="flex-direction: row">
+                  <mat-radio-button *ngFor="let relation of relations" [value]="relation" fxFlex="50">
+                    {{relation}}
+                  </mat-radio-button>              
+                </mat-radio-group>
+              </section>
+            </div>
+
+            <hr>
+
+            <label for="motivates">What motivates you to stay healthy?</label><br>
+            <mat-form-field style="width: 100%">              
+              <textarea matInput style="height: 150px; outline: solid 1px"></textarea>
+            </mat-form-field>
+
+            <label for="concerns">What concerns do you have about staying healthy now?</label><br>
+            
+            <div ng-controller="AppCtrl" ng-cloak>
+              <div class="ex-checkbox" layout="column" layout-wrap>
+                    <ul>
+                      <li *ngFor="let subtask of task.subtasks1">
+                        <mat-checkbox [(ngModel)]="subtask.completed" name="subtask1"
+                                      (ngModelChange)="updateAllComplete1()">
+                          {{subtask.name}}
+                        </mat-checkbox>
+                      </li>
+                    </ul>                
+                </div> 
+              </div>
+
+            <label for="home">Which of the following best describes where you live?</label><br>
+            <mat-radio-group [(ngModel)]="home" name="home" 
+                              class="radio-group">
+              <mat-radio-button *ngFor="let home of homes" [value]="home">
+                 {{home}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+        </div>
+
+        <button type="submit" mat-raised-button class="btn btn-success"
+            [disabled]="!surveyForm.form.valid">
+            Submit</button>
+
+        </form>
+      </section>
